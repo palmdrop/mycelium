@@ -41,37 +41,6 @@ public class Main extends PApplet {
     }
 
     public void setup() {
-        //TODO: spawn particles in strict, gridlike patterns, mathematically, systematically, and then let that
-        //TODO: contrast with their organic structure!
-
-        //TODO: visualize using dynamic text packing??? letters with varying "size" (use sorting algorithm) to visualize
-        //TODO: greater opacity, vary colors depending on underlying content
-        //TODO: maybe also vary detail (have areas with more tightly packed text (find a way to subdivide, perhaps
-        //TODO: using a quad tree (great idea???) where the underlying data is more detailed (how to determine this though???)
-
-        //TODO: combine designs with type, with text! let design instagram inspire! text boxes, poetic stuff? or just words,
-        //TODO: names of the piece, generated into the sketch? test out
-
-        //TODO: mycelium text, spawn particles where text is written
-        //TODO: artistic overlay with "real" text, make legible, grainy, blueish background (use map to spawn particles quickly)
-        //TODO: have the text mirror the effect generated! or contrast it
-        //TODO: for example, COALESCE for text that grows together, fade for text that fades out, SWIRL for text that swirls, etc
-
-        //TODO: vary particle color using underlying image
-
-        //TODO: perpetual motion by fading and drawing anew!
-
-        //TODO: layer sketches using thick blur and scaling! produce fake 3D effect
-        //TODO: scaling effect, create sketch, size up, blur, draw in the background! generate new for each layer!
-        //TODO: fake 3d effect, or fading between layers, by changing size dynamically, changing blur, moving "to the front"
-        //TODO: go from legible to less legible
-
-        //TODO: get significant speedup by converting the circles to a vector field! requires a lot of data, but should
-        //TODO: be quick to access and calculate velocities
-
-        //TODO: apply same effect on other stuff. Try using textflow (circles packed on letter regions) to draw text!
-        //TODO: (test if circle is on text! if yes, increase or decrease force!!!! TRY TRY TRY!!!!)
-
         System.out.println("SETTINGS SETUP");
         s =
                 new TestFlowSettings(this, 1000, 1000, 4);
