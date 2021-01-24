@@ -10,8 +10,8 @@ import flow.gravity.settings.NaturalG1;
 import flow.render.BlackWhiteRenderer;
 import flow.sketch.Golden4K;
 
-public class FS1 extends FlowSettings {
-    public FS1() {
+public class FlowSettings1 extends FlowSettings {
+    public FlowSettings1() {
         background = null;
 
         sketch = new Golden4K();
@@ -26,8 +26,8 @@ public class FS1 extends FlowSettings {
         bubbles = new BFS1(sketch.width, sketch.height);
 
         gravity =
-                new CenterG1(sketch.center).gravity;
-                //new NaturalG1().gravity;
+                //new CenterG1(sketch.center).gravity;
+                new NaturalG1().gravity;
 
         renderer = new BlackWhiteRenderer(particle, true);
 

@@ -1,5 +1,3 @@
-import background.BackgroundTools;
-import flow.FS1;
 import flow.FlowSettings;
 import flow.TestFlowSettings;
 import flow.generation.bubbleField.Bubble;
@@ -13,19 +11,12 @@ import util.math.MathUtils;
 import util.space.region.Area;
 import util.vector.Vector;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends PApplet {
-
     private FlowSettings s;
-
-    private int screenWidth;
-    private int screenHeight;
-
-    private int width;
-    private int height;
-
     private Area area;
 
     // Canvas and data
@@ -35,8 +26,7 @@ public class Main extends PApplet {
 
     // Setup
     public void settings() {
-        //size(screenWidth, screenHeight);
-        size(20, 20);
+        size(1, 1);
         smooth(5);
     }
 
@@ -44,13 +34,17 @@ public class Main extends PApplet {
         System.out.println("SETTINGS SETUP");
         s =
                 new TestFlowSettings(this, 1000, 1000, 4);
-                //new FS1();
-        surface.setSize(s.sketch.screenWidth, s.sketch.screenHeight);
+                //new FlowSettings1();
+
         width = s.sketch.width;
         height = s.sketch.height;
-        screenWidth = s.sketch.screenWidth;
-        screenHeight = s.sketch.screenHeight;
         area = Area.build(width, height);
+
+        surface.setSize(s.sketch.windowWidth, s.sketch.windowHeight);
+        surface.setLocation(
+                Toolkit.getDefaultToolkit().getScreenSize().width / 2 - s.sketch.windowWidth / 2,
+                Toolkit.getDefaultToolkit().getScreenSize().height / 2 - s.sketch.windowHeight / 2
+                );
 
         System.out.println("PARTICLE GENERATION");
         particles = new ArrayList<>();
@@ -103,16 +97,6 @@ public class Main extends PApplet {
                         s.renderer.render(pd, canvas);
                     }
 
-                    /*List<Bubble> neighbors = bubbles.getNeighbours(p.getPos());
-                    for (Bubble b : neighbors) {
-                        if (b.isInside(p.getPos())) {
-                            Vector dir = Vector.sub(p.getPos(), b.getPos());
-                            double dist = dir.length();
-                            double m = 1.0 - dist / b.getRadius();
-                            Vector force = Vector.mult(dir, b.getForce() * Math.pow(m, b.getDistPow()) / dist);
-                            p.addForce(force);
-                        }
-                    }*/
                     p.addForce(bubbles.getForce(p.getPos()));
 
                     Vector randomForce = Vector.randomWithLength(MathUtils.random(s.particle.maxRandomForce));
@@ -130,15 +114,15 @@ public class Main extends PApplet {
 
         background(0);
         if(s.background != null) {
-            image(s.background, 0, 0, s.sketch.screenWidth, s.sketch.screenHeight);
+            image(s.background, 0, 0, s.sketch.windowWidth, s.sketch.windowHeight);
         }
 
         if(s.sketch.pretty && !s.sketch.hidden) {
             PImage screen = canvas.get();
-            screen.resize(s.sketch.screenWidth, s.sketch.screenHeight);
+            screen.resize(s.sketch.windowWidth, s.sketch.windowHeight);
             image(screen, 0, 0);
         } else if(!s.sketch.hidden){
-            image(canvas, 0, 0, s.sketch.screenWidth, s.sketch.screenHeight);
+            image(canvas, 0, 0, s.sketch.windowWidth, s.sketch.windowHeight);
         } else {
             background(0);
         }
@@ -180,22 +164,10 @@ public class Main extends PApplet {
                 toSave.save("pictures/flow/pic" + System.currentTimeMillis() + ".png");
                 System.out.println("saved!");
             } break;
-            case 'q': {
-                PGraphics toSave = createGraphics(s.sketch.width, s.sketch.height);
-                toSave.beginDraw();
-                toSave.background(0);
-                toSave.image(canvas, 0, 0);
-                toSave.endDraw();
-
-                PImage image = toSave.get();
-                image.resize(screenWidth, screenHeight);
-                image.save("pictures/flow/final/pic" + System.currentTimeMillis() + ".png");
-                System.out.println("saved!");
-            }
-            case 'b': {
-                PGraphics b = BackgroundTools.toBlurredBackground(this, canvas, 2, new Vector(), 10, 50);
-                s.background = b;
-            } break;
+            //case 'b': {
+            //    PGraphics b = BackgroundTools.toBlurredBackground(this, canvas, 2, new Vector(), 10, 50);
+            //    s.background = b;
+            //} break;
         }
     }
 }

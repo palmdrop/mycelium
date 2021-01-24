@@ -4,13 +4,13 @@ import util.vector.Vector;
 
 public class Golden4K extends SketchSettings {
     public Golden4K() {
-        screenWidth = 1000;
-        screenHeight = (int) (screenWidth / Math.sqrt(2));
+        windowWidth = 1000;
+        windowHeight = (int) (windowWidth / Math.sqrt(2));
 
         quality = 4.0;
 
-        width = (int) (screenWidth * quality);
-        height = (int) (screenHeight * quality);
+        width = (int) (windowWidth * quality);
+        height = (int) (windowHeight * quality);
 
         center = new Vector(width/2.0, height/2.0);
 

@@ -19,12 +19,12 @@ public class TestFlowSettings extends FlowSettings {
     public TestFlowSettings(PApplet p, int sw, int sh, double q) {
         sketch = new SketchSettings() {
             SketchSettings init() {
-                screenWidth = sw;
-                screenHeight = sh;
+                windowWidth = sw;
+                windowHeight = sh;
                 quality = q;
 
-                width = (int)(screenWidth * q);
-                height = (int)(screenHeight * q);
+                width = (int)(windowWidth * q);
+                height = (int)(windowHeight * q);
 
                 center = new Vector(width/2.0, height/2.0);
 

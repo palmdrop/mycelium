@@ -3,8 +3,8 @@ package flow.sketch;
 import util.vector.Vector;
 
 public abstract class SketchSettings {
-    public int screenWidth;
-    public int screenHeight;
+    public int windowWidth;
+    public int windowHeight;
 
     public double quality;
 

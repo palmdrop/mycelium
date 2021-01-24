@@ -13,9 +13,8 @@ public class BFS1 extends BubbleFieldSettings {
 
         tries = 40;
 
-        //force = 0.003f;
-        minForce = 0.003f;
-        maxForce = 0.003f;
+        minForce = 0.01f;
+        maxForce = 0.03f;
         distPow = 3.0f;
     }
 }

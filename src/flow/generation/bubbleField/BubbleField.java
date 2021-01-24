@@ -20,23 +20,22 @@ public class BubbleField {
 
     private double maxGeneratedBubbleRadius;
 
-    private Vector[] vectorfield;
+    private Vector[] vectorField;
 
     public BubbleField(BubbleFieldSettings settings, PApplet p) {
         this.s = settings;
         this.p = p;
 
         bubbles = new ArrayList<>();
-        bubbleTree = new QuadTree<>(0, 0, s.width, s.height, 4); //TODO: experiment with cap?
+        bubbleTree = new QuadTree<>(0, 0, s.width, s.height, 4);
 
-        vectorfield = null;
+        vectorField = null;
     }
 
     public void generate() {
         WeightMap radiusGenerator = (x, y) -> {
             float n = p.noise((x * s.frequency), (y * s.frequency));
             return Math.pow(n, s.noisePow);
-            //return PApplet.map((float) Math.pow(n, s.noisePow), 0, 1, s.minRadius, s.maxRadius);
         };
 
         List<Vector> positions = PoissonDiskSampling.generate(s.width, s.height, s.tries, radiusGenerator, s.minRadius, s.maxRadius);
@@ -59,10 +58,10 @@ public class BubbleField {
     }
 
     public Vector getForce(ReadVector point) {
-        if(vectorfield != null) {
+        if(vectorField != null) {
             int x = (int) Math.max(0, Math.min(point.getX(), s.width));
             int y = (int) Math.max(0, Math.min(point.getY(), s.height));
-            return vectorfield[(int) (x + y * s.width)];
+            return vectorField[(int) (x + y * s.width)];
         }
 
         Vector sumForce = new Vector();
@@ -85,7 +84,7 @@ public class BubbleField {
             Vector f = getForce(new Vector(x, y));
             vf[(int) (x + y * s.width)] = f;
         }
-        vectorfield = vf;
+        vectorField = vf;
     }
 
     public List<Bubble> get() {
