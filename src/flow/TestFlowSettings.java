@@ -199,14 +199,9 @@ public class TestFlowSettings extends FlowSettings {
                     return g.calculate(position, mass);
                 }*/
         );
-                /*new AggregateGravity( // Down, to the center, and around!
-                GravityFromSources.fromPoint(sketch.center, 1.0, 0.001f, 0.0),
-            new GravitySwirl(-0.3f, sketch.center, 0.5f),
-            new GravityDirection(new Vector(0, 1), 0.01f)
-        );*/
-        //TODO: try fighting gravity: one pulling particles in from distance, one pushing away when they get close!!
 
-        renderer = //new BlackWhiteRenderer(particle, true);
+        renderer =
+             //new BlackWhiteRenderer(particle, true);
              new FromHueRenderer(particle, 15, 150, 255, 255 * 283.0f / 360, 255 * 180.0f / 360, 1);
     }
 }

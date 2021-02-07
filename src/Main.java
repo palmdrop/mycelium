@@ -161,13 +161,9 @@ public class Main extends PApplet {
                 }
                 toSave.image(canvas, 0, 0);
                 toSave.endDraw();
-                toSave.save("pictures/flow/pic" + System.currentTimeMillis() + ".png");
+                toSave.save("pictures/pic" + System.currentTimeMillis() + ".png");
                 System.out.println("saved!");
             } break;
-            //case 'b': {
-            //    PGraphics b = BackgroundTools.toBlurredBackground(this, canvas, 2, new Vector(), 10, 50);
-            //    s.background = b;
-            //} break;
         }
     }
 }
