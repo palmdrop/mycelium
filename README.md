@@ -38,13 +38,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is an old project of mine which I've toched up slightly to make presentable for github. Similar to my [sandbox project](https://github.com/palmdrop/sandbox), the purpose of this project is to allow me to explore code-driven art. In the case of this project, a particle simulation coupled with a specific type of "flow field" is used to produce an effect similar to that of mycelium growing. Note: this is by no means a mycelium simulation, the name merely comes from the visual similarities between the outputs of this project and that of growing mycelium.
+This is an old project of mine that I've touched up slightly to make it presentable for GitHub. Similar to my [sandbox project](https://github.com/palmdrop/sandbox), the purpose of this project is to allow me to explore code-driven art. In the case of this project, a particle simulation coupled with a specific type of "flow field" is used to produce an effect similar to that of mycelium growing. Note: this is by no means a mycelium simulation, the name merely comes from the visual similarities between the outputs of this project and that of growing mycelium.
 
 In this stage, there is no user interface -- instead, the settings are changed by editing the source code itself. A short usage guide can be found under <a href="#usage">usage</a>. Perhaps in the future I'll add an interface for more easy use.
 
-Some of the images produced by this project has been published on my [instagram](https://www.instagram.com/palmdrop/). Occasionally, I also make [blog posts](https://palmdrop.github.io/) describing parts of my process.
+Some of the images produced by this project have been published on my [instagram](https://www.instagram.com/palmdrop/). Occasionally, I also make [blog posts](https://palmdrop.github.io/) describing parts of my process.
 
-Here's a few sample images:
+Here are a few sample images:
 
 ![Bridge](/pictures/example-circle1.png)
 ![Mess](/pictures/example-growth1.png)
@@ -52,13 +52,13 @@ Here's a few sample images:
 
 More can be found under `pictures`.
 
-The core of the project is a particle physics simulation. Thousands of particles are spawned and draws a trail as they move. Each trail typically has a low opacity, and the color of the trail may change during the lifetime of the particle. After a set amount of time, the particle dies and new ones are spawned. 
+The core of the project is a particle physics simulation. Thousands of particles are spawned and each daws a trail as it moves. The trails typically have low opacity, and the color may change during the lifetime of the particle. After a set amount of time, the particle dies and new ones are spawned. 
 
-The particles moves according to a physics simulation. Often, gravity is applied in combination with a type of flowfield produced by a set of packed circle repellants. I.e, a set of circles are placed and the closer a particle is the center of any circle, the greater is the force pushing said particle away of that center. The circles are placed using poisson disk sampling. Here's a debug view of a typical, underlying heightmap structure: 
+The particles move according to a physics simulation. Often, gravity is applied in combination with a type of flowfield produced by a set of packed circle repellants. I.e, a set of circles are placed and the closer a particle is to the center of any circle, the greater is the force pushing said particle away from that center. The circles are placed using Poisson disk sampling. Here's a debug view of a typical, underlying heightmap structure: 
 
 ![Debug](/pictures/example-debug.png)
 
-The density and size of the circles is varied using an underlying noise function. They are also allowed to overlap to avoid spots where no force is acting on the particles.
+The density and size of the circles are varied using an underlying noise function. They are also allowed to overlap to avoid spots where no force is acting on the particles.
 
 ### Built With
 
@@ -93,17 +93,17 @@ I suggest setting up the project in a popular IDE for easy use since there's no 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Run the `Main` java file to run the project. The main class contains a `FlowSettings` field. The `FlowSettings` class contains all the classes and values required for the application to run. I recommend either creating your own class which inherits from this class, or edit the contents of `TestFlowSettings` where I've done most of my experimenting. You'll find a lot of possible values of different fields commented out. Try uncommenting some of them and see what happens.
+Run the `Main` java file to run the project. The main class contains a `FlowSettings` field. The `FlowSettings` class contains all the classes and values required for the application to run. I recommend either creating your own class that extends this class, or edit the contents of `TestFlowSettings` where I've done most of my experimenting. You'll find a lot of possible values of different fields commented out. Try uncommenting some of them and see what happens.
 
-When running the application, it generates slowly. Most of the full images takes a few mintues to render. The current state of the render will be displayed every second (roughly). While rendering, at any time you might press various keys to reset, pause/unpause, toggle debug mode, etc. 
+When running the application, generation is slow. Most of the examples took a few minutes to render. The current state of the render will be displayed every second (roughly). While rendering, at any time you might press various keys to reset, pause/unpause, toggle debug mode, etc. 
 
-Here's the existing keybinds:
+Here are the existing key bindings:
 
 * `r`     - Reset. Will start generating a new image using the same settings.
 * `space` - Toggle pause.
 * `d`     - Toggle debug view. This will simply display the underlying circles on the screen.
-* `m`     - Will display a lower quality version of the render in order to speed up generation.
-* `h`     - Will hide the render from the user in order to speed up generation.
+* `m`     - Will display a lower quality version of the render to speed up generation.
+* `h`     - Will hide the render from the user to speed up generation.
 * `s`     - Will save the image. The image will be saved under `pictures` if nothing else is specified. 
 
 <!-- CONTRIBUTING -->
@@ -118,4 +118,5 @@ I do not expect any contributions to this project. However, if you do find an es
 :camera: [Instagram](https://www.instagram.com/palmdrop/) (where I showcase a lot of my work)
 
 :computer: [Blog](https://palmdrop.github.io/) (where I occasionally write posts about my process)
+
 
