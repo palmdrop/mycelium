@@ -31,7 +31,7 @@
     </li>
     <li><a href="#usage">Usage</a></i>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact and social media</a></li>
+    <li><a href="#contact-and-social-media">Contact and social media</a></li>
   </ol>
 </details>
 
